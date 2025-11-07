@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的音乐站点</title>
+</head>
 <body>
-  <!-- 带播放控件的音频，支持暂停/音量调节 -->
-  <audio src="你的Raw地址" controls>
-    浏览器不支持音频播放，请更新浏览器。
-  </audio>
+    <h1>欢迎来到我的音乐空间</h1>
+    
+    <!-- 音乐播放器 -->
+    <audio id="myAudio" controls loop>
+        <source src="你的音乐文件路径/音乐文件名.mp3" type="audio/mpeg">
+        您的浏览器不支持 HTML5 audio 元素。
+    </audio>
+    
+    <script>
+        // 可选：尝试自动播放（注意浏览器策略）
+        window.onload = function() {
+            var audio = document.getElementById('myAudio');
+            audio.play().catch(function(error) {
+                console.log("自动播放被阻止，需要用户交互: " + error);
+            });
+        };
+    </script>
 </body>
 </html>
